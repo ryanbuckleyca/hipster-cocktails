@@ -1,17 +1,29 @@
-<h1><%= @cocktail.name %></h1>
-<h2>Doses:</h2>
-<ul>
-  <% @cocktail.doses.each do |dose| %>
-  <li>
-    <%= dose.description %>
-    <%= dose.ingredient.name %>
-  </li>
-  <% end %>
-</ul>
-<h1>Add dose to <%= @cocktail.name %></h1>
-<%= simple_form_for [@cocktail, Dose.new] do |f| %>
-<%= f.input :description %>
-<%= f.association :ingredient %>
-<%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-sm-12">
+    <div class="cocktail-info">
+      <img src="https://source.unsplash.com/200x200/?cocktail,<%= @cocktail.name %>" class="cocktail-image">
+      <div class="flex-grow">
+        <h1><%= @cocktail.name %></h1>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.description %>
+            <%= dose.ingredient.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-12">
+    <h3>Add to <%= @cocktail.name %></h3>
+    <%= simple_form_for [@cocktail, Dose.new] do |f| %>
+    <%= f.input :description %>
+    <%= f.association :ingredient %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
 
