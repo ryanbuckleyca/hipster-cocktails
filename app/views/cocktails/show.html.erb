@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-8 col-sm-12">
+  <div class="col-md-9 col-sm-12">
     <div class="cocktail-info">
       <img src="<%= cocktail_img %>" class="cocktail-image">
       <div class="flex-grow">
@@ -22,14 +22,47 @@
     </div>
   </div>
 
-  <div class="col-md-4 col-sm-12">
-    <h3>Add to <%= @cocktail.name %></h3>
+  <div class="col-md-3 col-sm-12 py-4">
+    <h2><i class="fas fa-plus-circle"></i> add dose</h2>
     <%= simple_form_for [@cocktail, Dose.new] do |f| %>
     <%= f.input :description %>
     <%= f.association :ingredient %>
     <%= f.submit %>
     <% end %>
   </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-12">
+    <h4>Leave a review for <%= @cocktail.name %></h4>
+  </div>
+</div>
+
+<div class="row">
+<%= simple_form_for [@cocktail, Review.new], html: {class: 'd-flex w-100 flex-wrap'} do |f| %>
+    <div class="col-lg-7 col-sm-12 review"><%= f.input :content %></div>
+    <div class="col-lg-5 col-sm-12 d-flex align-items-end justify-content-right">
+      <%= f.input :rating %>
+      <%= f.submit style: 'padding: 5px; margin: 16px 0 16px 24px;' %>
+    </div>
+<% end %>
+</div>
+
+<div class="row">
+  <% if @cocktail.reviews.nil? %>
+    <em>no reviews yet</em>
+  <% else %>
+    <% @cocktail.reviews.each do |review| %>
+    <div class="col-12">
+      <%= '⭐️'*review.rating %>
+      <%= review.content %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="footer">
+  <br><br> <!-- spacer -->
 </div>
 
 

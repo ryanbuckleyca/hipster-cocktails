@@ -1,8 +1,57 @@
 // Import page-specific CSS files here.
 @import "home";
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
 
+body {
+  background-color: rgba(200, 200, 200, 1);
+}
+input {
+  border-radius: 4px !important;
+}
+h1 {
+  font-size: 34px;
+}
+h2 {
+  font-size: 28px;
+}
+@media(max-width: 992px) {
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+}
+@media(max-width: 576px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+}
+a:hover {
+  text-decoration: none;
+}
+.card {
+  background-color: rgba(235, 235, 235, 1);
+  transition: 0.5s;
+  border-radius: 5px;
+  border: 1px solid rgba(220, 220, 220, 1);
+  color: rgba(50, 50, 50, 1);
+  text-decoration: none;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    transition: 0.5s;
+    filter: brightness(1.1);
+    transform: scale(1.01);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  }
+}
 .card-image {
   background-size: cover;
   height: 200px;
   max-height: 25vw;
+  border-radius: 5px 5px 0 0;
 }
+

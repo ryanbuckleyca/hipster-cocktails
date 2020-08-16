@@ -1,11 +1,15 @@
 .cocktail-info {
+  height: 100%;
   border: 1px solid rgba(1, 1, 1, 0.2);
+  background-color: rgba(235, 235, 235, 1);
   display: flex;
-  margin-bottom: 30px;
   div {
-    padding: 10px
+    padding: 20px 10px;
   }
   img {
     margin-right: 20px;
   }
 }
+// .review .form-control {
+//   width: 100%;
+// }

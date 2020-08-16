@@ -1,16 +1,16 @@
-<h1>List of cocktails</h1>
+<h1>Our cocktails</h1>
 <div class="row">
-<% @cocktails.each do |cocktail| %>
-<% if cocktail.photo.attached? %>
-<%    cocktail_img = cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+<% @cocktails.each do |c| %>
+<% if c.photo.attached? %>
+  <% c_img = cl_image_path c.photo.key, height: 300, width: 400, crop: :fill %>
 <% else %>
-<%    cocktail_img = "https://source.unsplash.com/200x200/?cocktail,#{cocktail.name}" %>
+  <% c_img = "https://source.unsplash.com/200x200/?cocktail,#{c.name}" %>
 <% end %>
-  <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">
-    <div class="card mb-3">
-      <div class="card-image" style="background-image:url('<%= cocktail_img %>')"></div>
-      <p class="p-2 m-0 text-center"><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+  <%= link_to cocktail_path(c), class: "col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex flex-column mt-3" do %>
+    <div class="card mb-3 d-flex flex-grow-1">
+      <div class="card-image flex-grow-1" style="background-image:url('<%= c_img %>')"></div>
+      <p class="p-2 m-0 text-center"><%= c.name %></p>
     </div>
-  </div>
+  <% end %>
 <% end %>
 </div>
