@@ -29,9 +29,18 @@ input {
 
 h1 {
   font-size: 34px;
+  color: rgb(74, 87, 89);
+  font-weight: 600;
 }
 h2 {
   font-size: 28px;
+  font-weight: 600;
+  color: rgb(74, 87, 89);
+}
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(74, 87, 89);
 }
 @media(max-width: 992px) {
   h1 {
@@ -39,6 +48,9 @@ h2 {
   }
   h2 {
     font-size: 22px;
+  }
+  h3 {
+    font-size: 16px;
   }
 }
 @media(max-width: 576px) {
@@ -49,6 +61,9 @@ h2 {
     font-size: 22px;
   }
   h2 {
+    font-size: 16px;
+  }
+  h3 {
     font-size: 16px;
   }
 }
@@ -73,6 +88,7 @@ a:hover {
 }
 .card-image {
   background-size: cover;
+  background-position: center center;
   height: 200px;
   max-height: 25vw;
   border-radius: 5px 5px 0 0;
