@@ -1,3 +1,13 @@
+@keyframes cheers {
+  0% {left: 0px}
+  10% {left: 10px}
+  20% {transform: rotate(5deg); left: 10px}
+  25% {transform: rotate(0deg); left: 10px}
+  50% {transform: rotate(0deg); left: 0px}
+  75% {transform: rotate(-20deg)}
+  100% {transform: rotate(0deg)}
+}
+
 header {
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x200/?cocktail');
   background-size: cover;
@@ -20,8 +30,9 @@ header {
     color: white;
   }
   #logo:hover i {
-    transform: rotate(-20deg);
-    transition: 1s;
+    position: relative;
+    animation-name: cheers;
+    animation-duration: 2s;
   }
 
   .btn {
@@ -39,4 +50,6 @@ header {
     font-size: 26px;
   }
 }
+
+
 
