@@ -1,11 +1,11 @@
 <h1>Our cocktails</h1>
 <div class="row">
-<% @cocktails.each do |c| %>
-<% if c.photo.attached? %>
-  <% c_img = cl_image_path c.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-  <% c_img = "https://source.unsplash.com/200x200/?cocktail,#{c.name}" %>
-<% end %>
+<% @cocktails.each do |c|
+   if c.photo.attached?
+     c_img = cl_image_path c.photo.key, height: 300, width: 400, crop: :fill
+    else
+    c_img = "https://source.unsplash.com/200x200/?cocktail,#{c.name}"
+  end %>
   <%= link_to cocktail_path(c), class: "col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12 d-flex flex-column mt-3" do %>
     <div class="card mb-3 d-flex flex-grow-1">
       <div class="card-image flex-grow-1" style="background-image:url('<%= c_img %>')"></div>
